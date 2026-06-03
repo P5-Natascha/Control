@@ -105,7 +105,7 @@ void handleBaseCommands(String cmd) {
             Serial.println("Aborting...");
         }
     } else if (cmd == "exit") {
-        Serial.println("Exiting shell");
+        Serial.println("Terminating shell");
         currentOpMode = REGULAR;
     } else {
         Serial.println("Command not found: " + cmd);
@@ -468,18 +468,23 @@ void shell() {
         printShellChar();
         String shellInput = getSerialInput(false);
         Serial.println(shellInput);
-        if(currentShellMode == BASE) {
-            handleBaseCommands(shellInput);
-        } else if(currentShellMode == CONFIG) {
-            handleConfigCommands(shellInput);
-        } else if(currentShellMode == S_WIFI) {
-            handleWiFiCommands(shellInput);
-        } else if(currentShellMode == S_BLUETOOTH) {
-            
-        } else if(currentShellMode == SCREEN) {
-            handleDisplayCommands(shellInput);
-        } else if(currentShellMode == DEBUG) {
-            handleDebugCommands(shellInput);
+        if (shellInput != "quit") {
+            if(currentShellMode == BASE) {
+                handleBaseCommands(shellInput);
+            } else if(currentShellMode == CONFIG) {
+                handleConfigCommands(shellInput);
+            } else if(currentShellMode == S_WIFI) {
+                handleWiFiCommands(shellInput);
+            } else if(currentShellMode == S_BLUETOOTH) {
+                handleBluetoothCommands(shellInput);
+            } else if(currentShellMode == SCREEN) {
+                handleDisplayCommands(shellInput);
+            } else if(currentShellMode == DEBUG) {
+                handleDebugCommands(shellInput);
+            }
+        } else {
+            Serial.println("Terminating shell.");
+            currentOpMode = REGULAR;
         }
     }
     Serial.println("Shell exited.");

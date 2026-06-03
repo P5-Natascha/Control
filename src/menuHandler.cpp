@@ -47,6 +47,7 @@ void joyStickMenu() { // Hauptmenü
             case M_INFO: currentCtrlMode = INFO; SDATAPage = 1; break;
             case M_SETTINGS: break;
         }
+        InactivityHandler();
         updateMode();
         logging.debug("Button pressed (Selected Mode: " + String(currentCtrlMode) + ")");
     }

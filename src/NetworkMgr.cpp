@@ -84,7 +84,7 @@ void NetworkMgr::_connectTCP() {
         }
     }
     if(_tcp.connected()) {
-        delay(100);
+        delay(500);
     }
 }
 
@@ -101,13 +101,15 @@ void NetworkMgr::_checkTCP() {
 
 void NetworkMgr::sendTCP(String type, String value) {
     _checkTCP();
-    _tcp.println(type + ":" + value);
+    String msg = type + ":" + value + "\r\n";
+    _tcp.write(msg.c_str(), msg.length());
     logging.debug("Sende TCP. type: " + type + "; value: " + value);
 }
 
 void NetworkMgr::sendTCP(String type, int value) {
     _checkTCP();
-    _tcp.println(type + ":" + value);
+    String msg = type + ":" + value + "\r\n";
+    _tcp.write(msg.c_str(), msg.length());
     logging.debug("Sending TCP. type: " + type + "; value: " + value);
 }
 

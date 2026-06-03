@@ -119,13 +119,13 @@ void updateDisplay() { // Alle Menüs
                     break;
                 case MANUAL: {
                     displayMode("Manuell");
-                    String bottomContent = "Bat:" + String(battValue) + "V L:" + String(lenkungValue);
+                    String bottomContent = "Bat:" + String(battValue) + "V " + String(ampereValue) + "A";
                     changeBottomDisplay(bottomContent);
                     break;
                 }
                 case HAUTO: {
                     displayMode("Halb-Automatik");
-                    String bottomContent = "Bat:" + String(battValue) + "V L:" + String(lenkungValue);
+                    String bottomContent = "Bat:" + String(battValue) + "V " + String(ampereValue) + "A";
                     changeBottomDisplay(bottomContent);
                     break;
                 }

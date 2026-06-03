@@ -1,8 +1,5 @@
 # Control
-Work in Progress
-
-* ToDo: 
-    * shell: Add quit command to exit shell from everywhere
+Diese Repo ist teil eines P5-Projektes am Beruflichen Gymnasium Technik
 
 ## Dokumentation:
 Dieser Code gehört zu einer ESP 32-Fernbedienung um ein [Auto](https://github.com/P5-Natascha/Captain) zu steuern.
